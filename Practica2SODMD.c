@@ -14,7 +14,7 @@ void ListaAtributosArchivo(char *Nombrearchivo);
 void ListaAtributosEntradaDirectorio(char *Nombredirectorio);
 void ExisteDirectorio(char *Nombredirectorio, char *Nombrearchivo);
 
-///A Validar el n˙mero de argumentos del main
+///A Validar el n√∫mero de argumentos del main
 int main(int argc, char **argv){
     if (argc > 2){
         ExisteDirectorio(argv[1], argv[2]);
@@ -37,7 +37,7 @@ void CrearDirectorio(char *Nombredirectorio, char *Nombrearchivo){
 }
 ///C Crear archivo y D Escribir en el archivo los nombres de los integrantes
 void CrearArchivo(char *Nombredirectorio, char *Nombrearchivo){
-    char *Nombres = {"\nArce Medina Valeria\nAzamar AvilÈs Santiago\nCardoso Martinez Luis Fernando\nCarreÛn Alonso Sebasti·n\nCastillo Corona Enrique\nIzaguirre Camacho Jorge\n"};
+    char *Nombres = {"\nArce Medina Valeria\nAzamar Avil√©s Santiago\nCardoso Martinez Luis Fernando\nCarre√≥n Alonso Sebasti√°n\nCastillo Corona Enrique\nIzaguirre Camacho Jorge\n"};
     FILE* Equipo = fopen(Nombrearchivo, "w+");
     if(Equipo){
         if (fwrite(Nombres,strlen(Nombres),1,Equipo)) printf("\nEl archivo se ha creado correctamente\n");
@@ -64,7 +64,7 @@ void ListaAtributosArchivo(char *Nombrearchivo){
     if (!stat(Nombrearchivo, &archInfo)){
         printf("\n**Lista atributos del archivo: %s\n", Nombrearchivo);
         printf("Numero de inodo: %ld\n", archInfo.st_ino);
-        printf("TamaÒo: %ld bytes\n", archInfo.st_size);
+        printf("Tama√±o: %ld bytes\n", archInfo.st_size);
         printf("Numero de enlaces: %ld\n", archInfo.st_nlink);
     }
 }
@@ -84,17 +84,17 @@ void ListaAtributosEntradaDirectorio(char *Nombredirectorio){
     }
 }
 ///H PUNTO EXTRA Si ya existe el directorio o el archivo a crear,
-///pedir otro nombre para el directorio o archivo y continuar con la ejecuciÛn
+///pedir otro nombre para el directorio o archivo y continuar con la ejecuci√≥n
 void ExisteDirectorio(char *Nombredirectorio, char *Nombrearchivo){
     DIR *dir = opendir(Nombredirectorio);
     FILE *file = fopen(Nombrearchivo, "r");
     if (dir){
-        printf("\nIngrese nuevo nombre del folder: ");
+        printf("\nIngrese el nuevo nombre del directorio: ");
         scanf("%s", Nombredirectorio);
         closedir(dir);
     }
     if (file){
-        printf("\nIngrese nuevo nombre del archivo: ");
+        printf("\nIngrese el nuevo nombre del archivo: ");
         scanf("%s", Nombrearchivo);
         fclose(file);
     }
